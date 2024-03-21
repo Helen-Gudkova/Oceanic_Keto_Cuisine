@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ article.title }} - Моя Веб-Страница{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_article_detail.css' %}">
+</head>
+<h2 class="site-title2 text-center">{{ article.title }}</h2>
+<p class="site-title3 text-center">{{ article.content }}</p>
+<p class="site-title3 text-center"><strong>Автор: </strong>{{ article.author }}</p>
+{% endblock %}

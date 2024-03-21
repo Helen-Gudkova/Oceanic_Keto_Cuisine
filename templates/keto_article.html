@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Статьи про кето{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_article.css' %}">
+</head>
+<h2 class="site-title1 text-center">Статьи</h2>
+
+<ul>
+  {% for article in articles %}
+    <h3 class="article"><a href="/articles/{{ article.id }}" class="article">{{ article.title }}</a></h3>
+  {% endfor %}
+</ul>
+
+{% endblock %}

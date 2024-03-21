@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white; /* нежно голубой цвет фона */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* или ваше желаемое значение высоты */
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.gallery {
+  background-image: url('/static/images/1586116942_edatop-edatop_ru-67.jpg');;
+  background-size: 150%;
+  }
+
+/*.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 200, 0.1);}
+}*/
+
+.text-container {
+  text-align: center;
+  margin-top: 150px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-image: url('/static/images/1586116942_edatop-edatop_ru-67.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(120%);
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  /*max-width: 80%;*/
+  color: #003c0c; /* темно-зеленый цвет */; /* темно-зеленый цвет */
+  font-style: italic;
+  font-size: 16px; /* увеличение шрифта на 24 пункта */
+}
+.menu{
+ font-size: 15px;
+  text-align: left;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Lobster", sans-serif;
+  color: #663300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

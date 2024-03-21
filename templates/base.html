@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>Oceanic Keto Cuisine</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class="menu"><a href="/" class="menu">Главная</a></li>
+      <li class="menu"><a href="/about/" class="menu">Что такое кето в паскетарианстве?</a></li>
+      <li class="menu" ><a href="/keto_article" class="menu">Статьи про кето</a></li>
+      <li class="menu"><a href="/recipes/" class="menu">Кето рецепты</a></li>
+      <li class="menu"><a href="/about/" class="menu">Примеры меню</a></li>
+      <li class="menu"><a href="/about/" class="menu">Выйти</a></li>
+      <li class="menu"><a href="/about/" class="menu">Зарегистрироваться</a></li>
+      <li class="menu"><a href="/about/" class="menu">Авторизоваться</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+
+</html>
+
+
+
+

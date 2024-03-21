@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Рецепты - Моя Веб-Страница{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_recipes.css' %}">
+</head>
+  <h2 class="site-title1 text-center">Рецепты 🥑🐟</h2>
+  <div class="image-column text-center"> <!-- добавляем дополнительный контейнер для столбца изображений -->
+     {% for dish_type in dish_types %}
+    <a href="/get-recipes/?type={{ dish_type }}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ dish_type }}.jpg');" >
+      {{ dish_type }}
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
