@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Меню - Моя Веб-Страница{% endblock %}
+
+{% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_menu.css' %}">
+</head>
+  <h2 class="site-title1 text-center">Примеры меню на неделю 🥑🐟</h2>
+    <div class="image-column text-center">
+    {% for day, day_name in days_of_week %}
+      <a href="/menu_detail/?day={{ day }}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ day }}.jpg');" >
+        {{ day_name }}
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
+

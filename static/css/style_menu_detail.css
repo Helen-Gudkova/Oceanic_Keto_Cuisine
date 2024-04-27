@@ -17,8 +17,8 @@ body {
   color: #663300;
 }
 
-.recipes{
- font-size: 15px;
+.article{
+ font-size: 10px;
   text-align: center;
   font-weight: 400;
   font-style: normal;
@@ -32,8 +32,8 @@ body {
     background-position: center;
     width: 300px; /* Настройте ширину изображения по вашим предпочтениям */
     height: 250px; /* Настройте высоту изображения по вашим предпочтениям */
-    border: 4px solid rgba(139, 69, 19, 0); /* Замените цвет на ваше предпочтение и настройте прозрачность,*/
-    border-radius: 20px; /* Задайте радиус закругления углов */
+    border: 4px solid rgba(139, 49, 19, 0); /* Замените цвет на ваше предпочтение и настройте прозрачность */
+    border-radius: 10px; /* Задайте радиус закругления углов */
 }
 
 .image-column {
@@ -45,7 +45,7 @@ body {
 
 .type{
   font-style: normal;
-  font-size: 25px;
+  font-size: 20px;
    text-align: center;
    font-family: "Lobster", sans-serif;
    color: #331a00;/* Замените цвет на ваше предпочтение #331a00*/
@@ -59,12 +59,6 @@ body {
         position: absolute; /* Позиционируем текст поверх фонового изображения */
         content: attr(data-text); /* Текст для отображения */
     }
-#recipes-list {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f2f2f2;
-  border: 2px solid #cccccc;
-}
 
 /* Прозрачность фонового изображения */
 body::after {
@@ -80,4 +74,10 @@ body::after {
   background-repeat: no-repeat;
   opacity: 0.2; /* Уровень прозрачности фонового изображения */
   z-index: -1;
+}
+.image-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  /* Равномерное распределение */
+    align-items: center;  /* Выравнивание по центру */
 }

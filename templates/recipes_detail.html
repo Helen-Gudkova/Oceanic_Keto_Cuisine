@@ -12,8 +12,8 @@
 <h2 class="site-title1 text-center">{{ dish_type }} 🥑🐟</h2>
  <div class="image-column text-center"> <!-- добавляем дополнительный контейнер для столбца изображений -->
   {% for recipe_title in recipes %}
-    <a href="/get-recipes/?type={{ dish_type }}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ recipe_title }}.jpg');">{{ recipe_title }}</a>
-  {% endfor %}
+     <a href="{% url 'recipe_detail' recipe_title=recipe_title %}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ recipe_title }}.jpg');">{{ recipe_title }}</a>
+   {% endfor %}
 </div>
 {% endblock %}
 

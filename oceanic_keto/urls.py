@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from keto import views
-from keto.views import recipes_view, about_view, get_recipes_view, keto_article_view, article_detail_view
+from keto.views import recipes_view, menu_view, about_view, get_recipes_view, keto_article_view, article_detail_view, \
+    menu_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,13 @@ urlpatterns = [
     path('keto_article/', keto_article_view, name='keto_article'),
     path('articles/<int:article_id>/', article_detail_view, name='article_detail'),
     path('recipes/', recipes_view, name='recipes'),
+    path('menu/', menu_view, name='menu'),
+    path('menu_detail/', menu_detail_view, name='menu_detail'),
     path('get-recipes/', get_recipes_view, name='get-recipes'),
+    path('recipe_detail_detail/<str:recipe_title>/', views.recipe_detail_detail, name='recipe_detail_detail'),
+    path('recipes/search/', views.recipe_search, name='recipe_search'),
+    path('recipe/<str:recipe_title>/', views.recipe_detail, name='recipe_detail'),
     path('keto/', include('keto.urls')),
+    path('users/', include('users.urls', namespace='users')),  # Подключение URL-путей из приложения users
+
 ]

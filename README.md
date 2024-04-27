@@ -8,3 +8,6 @@
 - Команда `python manage.py migrate cards zero` откатывает все миграции
 - Команда `python manage.py migrate cards 0001` откатывает миграцию до определенной
 - python load_recipes.py
+- Создание суперпользователя через команду `python manage.py createsuperuser`
+- helen
+- WWWwww123
