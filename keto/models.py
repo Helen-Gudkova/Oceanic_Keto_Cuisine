@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+
 class Recipe(models.Model):
        title = models.CharField(max_length=100) #заголовок
        description = models.TextField() #Описание рецепта
@@ -50,3 +53,13 @@ class Menu(models.Model):
 
     def __str__(self):
         return f"{self.day}: {self.recipe.title}"
+
+class RecipeReview(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_reviews')
+    rating = models.PositiveIntegerField(default=0)
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('recipe', 'user')

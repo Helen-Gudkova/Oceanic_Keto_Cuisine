@@ -1,4 +1,3 @@
-<!-- recipes_detail_detail.html -->
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -30,5 +29,40 @@
     </div>
   </div>
 </div>
+
+<!-- Отображение существующих отзывов (перемещено вне условного блока) -->
+<h3 class="site-title2">Отзывы:</h3>
+{% for review in reviews %}
+  <div>
+    <p class="site-title3">Оценка: {{ review.rating }}</p>
+    <p class="site-title3">Комментарий: {{ review.comment }}</p>
+    <p class="site-title3">Пользователь: {{ review.user.username }}</p>
+    <p class="site-title3">Дата: {{ review.created_at }}</p>
+  </div>
+{% endfor %}
+
+{% if error_message %}
+    <p class="site-title3">{{ error_message }}</p>
+{% endif %}
+
+{% if user.is_authenticated and not user_review %}
+        <!-- Форма для добавления нового отзыва -->
+        <div class="content-column">
+        <h3 class="site-title2" >Добавить отзыв</h3>
+        <div class="content-column">
+        <form method="post" action="{% url 'create_review' recipe.id %}">
+            {% csrf_token %}
+            <label class="site-title3">Оценка:</label>
+            <input type="number" name="rating" min="1" max="5" required>
+            <label class="site-title3">Комментарий:</label>
+            <textarea name="comment"></textarea>
+            <button type="submit" class="site-title3">Отправить</button>
+        </form>
+        </div>
+{% elif user.is_authenticated and user_review %}
+    <p class="site-title3">Вы уже оставили отзыв на этот рецепт.</p>
+    {% endif %}
 {% endblock %}
+
+
 
