@@ -11,11 +11,15 @@
 </head>
   <h2 class="site-title1 text-center">Примеры меню на неделю 🥑🐟</h2>
     <div class="image-column text-center">
-    <h2>Меню на {{ day  }}</h2>
-  <ul>
-    {% for item in menu_items %}
-        <li>{{ item.meal_time }}: {{ item.dish_name }} ({{ item.calories }} калорий)</li>
-    {% endfor %}
-  </ul>
+    <h2 class="day-title text-center"> {{ day_name  }}</h2>
+    {% for meal_time, items in meal_time_groups.items %}
+    <h3 class="day-title1 text-center">{{ meal_time }}</h3>
+    <ul>
+        {% for item in items %}
+            <li class="day-title2 text-center">{{ item.recipe.title }} - {{ item.calories }} калорий</li>
+        {% endfor %}
+    </ul>
+  {% endfor %}
+   <p class="day-title1 text-center">Общая сумма калорий за день: {{ total_calories }}</p>
   </div>
 {% endblock %}

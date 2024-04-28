@@ -1,0 +1,36 @@
+<h2>Создать меню</h2>
+<form method="post" action="{% url 'menu' %}">
+  {% csrf_token %}
+  <label for="day">День:</label>
+  <input type="text" name="day" required>
+  <br><br>
+  <label for="breakfast">Завтрак:</label>
+  <select name="breakfast">
+    {% for recipe in recipes %}
+      <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <label for="lunch">Обед:</label>
+  <select name="lunch">
+    {% for recipe in recipes %}
+      <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <label for="dinner">Ужин:</label>
+  <select name="dinner">
+    {% for recipe in recipes %}
+      <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <label for="snack">Перекус:</label>
+  <select name="snack">
+    {% for recipe in recipes %}
+      <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <input type="submit" value="Создать">
+</form>

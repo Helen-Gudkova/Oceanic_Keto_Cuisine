@@ -38,7 +38,18 @@ def menu_view(request):
 def menu_detail_view(request):
     day = request.GET.get('day')  # Получаем день из GET-параметров
     menu_items = Menu.objects.filter(day=day).order_by('meal_time')
-    return render(request, 'menu_detail.html', {'menu_items': menu_items, 'day': day})
+    day_name = dict(Menu.DAYS_OF_WEEK).get(day)  # Получаем название дня
+    total_calories = sum(int(item.calories() or 0) for item in menu_items)
+    meal_time_groups = {}
+    for item in menu_items:
+        meal_time_groups.setdefault(item.get_meal_time_display(), []).append(item)
+
+    return render(request, 'menu_detail.html', {
+        'day': day,
+        'day_name': day_name,  # Добавляем day_name в контекст
+        'total_calories': total_calories,
+        'meal_time_groups': meal_time_groups,
+    })
 
 
 def get_recipes_view(request):
