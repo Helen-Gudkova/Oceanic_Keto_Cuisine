@@ -12,9 +12,10 @@ body {
   text-align: center !important;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 
 .article{
@@ -22,8 +23,9 @@ body {
   text-align: center;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
-  color: #663300;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  color: #000000;
 }
 
 .bg-image {
@@ -47,9 +49,10 @@ body {
   font-style: normal;
   font-size: 20px;
    text-align: center;
-   font-family: "Lobster", sans-serif;
+   font-family: "Montserrat", sans-serif;
+   font-optical-sizing: auto;
    color: #331a00;/* Замените цвет на ваше предпочтение #331a00*/
-   font-weight: bold;
+   font-weight: 400;
    padding: 10px;
    margin: 10px;
    position: relative;
@@ -78,27 +81,31 @@ body::after {
 .day-title {
   font-size: 30px;
   text-align: center !important;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 .day-title1 {
   font-size: 20px;
   text-align: center !important;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 .day-title2 {
   font-size: 15px;
   text-align: center !important;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
+
 }

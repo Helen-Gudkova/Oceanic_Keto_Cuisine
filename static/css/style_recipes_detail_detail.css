@@ -12,9 +12,10 @@ body {
   text-align: center !important;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 
 .site-title2 {
@@ -22,9 +23,10 @@ body {
   text-align: center !important;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 
 .site-title3 {
@@ -32,9 +34,10 @@ body {
   text-align: center !important;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 
 .recipes{
@@ -42,8 +45,9 @@ body {
   text-align: center;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
-  color: #663300;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  color: #000000;
 }
 
 .bg-image {
@@ -67,7 +71,8 @@ body {
   font-style: normal;
   font-size: 25px;
    text-align: center;
-   font-family: "Lobster", sans-serif;
+   font-family: "Montserrat", sans-serif;
+   font-optical-sizing: auto;
    color: #331a00;/* Замените цвет на ваше предпочтение #331a00*/
    font-weight: bold;
    padding: 10px;

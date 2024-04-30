@@ -5,11 +5,11 @@
 {% block content %}
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_menu_detail.css' %}">
 </head>
-  <h2 class="site-title1 text-center">Примеры меню на неделю 🥑🐟</h2>
+  <!--<h2 class="site-title1 text-center">Примеры меню на неделю 🥑🐟</h2>-->
     <div class="image-column text-center">
     <h2 class="day-title text-center"> {{ day_name  }}</h2>
     {% for meal_time, items in meal_time_groups.items %}

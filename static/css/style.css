@@ -1,12 +1,50 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: white; /* нежно голубой цвет фона */
+  background-color: white;
+}
+.menu-container .navbar-nav{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 100;
+  list-style-type: none;
+  background-color: black; /* Изменить цвет фона */
+  color: white;
+  width: 100%;  /* Добавить эту строку */
+  justify-content: space-between;  /* Добавить эту строку */
+  margin: 0 0;
+  padding-top: 0;
+  padding: 22px;
+  }
+.menu-container .navbar-nav .nav-link {
+  color: white;
 }
 
-.text-center {
-  text-align: center;
+.content {
+ padding-top: 30px;
 }
+
+.navbar {
+  margin: 0;
+  }
+
+.nav-item {
+  flex-grow: 1;
+  margin: 0 10px;  /* Добавить эту строку */
+}
+
+.nav-link:hover {
+  color: #666;
+}
+.search-form {
+  margin-left: auto;
+}
+
+.input-group {
+  position: fixed;
+  margin:34px 0;
+  }
 
 .title-container {
   text-align: center;
@@ -17,7 +55,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* или ваше желаемое значение высоты */
+  height: 100vh;
 }
 
 .image-container img {
@@ -31,184 +69,14 @@ body {
   background-image: url('/static/images/1586116942_edatop-edatop_ru-67.jpg');
   background-size: 150%;
 }
-
-.text-container {
-  text-align: center;
-  margin-top: 150px;
-  font-weight: bold;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-image: url('/static/images/1586116942_edatop-edatop_ru-67.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(120%);
-  transform: translate(-50%, -50%);
-  padding: 50px;
-  /*max-width: 80%;*/
-  color: #003c0c; /* темно-зеленый цвет */; /* темно-зеленый цвет */
-  font-style: italic;
-  font-size: 16px; /* увеличение шрифта на 24 пункта */
+.included-menu {
+ position: fixed; /* Фиксировать относительно окна просмотра */
+ top: 118px;  /*  Настроить отступ сверху */
+ right: 0;
+ }
+.logo {
+  width: 100px; /* Желаемая ширина логотипа */
+  height: 40px; /* Желаемая высота логотипа */
+  margin-right: 30px;
 }
-
-.menu {
-  font-size: 15px;
-  text-align: left;
-  font-weight: 400;
-  font-style: normal;
-  font-family: "Lobster", sans-serif;
-  color: #000000;
-  background-color: #f1f1f1; /* Добавлен фон для меню */
-  padding: 20px; /* Добавлен отступ для меню */
-  margin: 0; /* Убраны отступы margin у списка */
-}
-
-#popupMenu {
-  position: absolute;
-  top: 0;
-  left: -200px; /* Устанавливаем смещение влево */
-  width: 200px;
-  height: 100vh;
-  background-color: #f1f1f1;
-  transition: left 0.3s ease-out; /* Добавляем плавную анимацию */
-}
-
-#popupMenu.open {
-  left: 0; /* Показываем меню смещением вправо */
-}
-
-#popupMenu ul {
-  list-style-type: none;
-  padding: 20px;
-  margin: 0; /* Убрано отступы margin у списка */
-}
-
-#popupMenu li {
-  margin-bottom: 10px;
-}
-
-#popupMenu a {
-  text-decoration: none;
-  color: #333;
-}
-
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu ul li {
-  margin-bottom: 10px;
-}
-
-.menu ul li a {
-  text-decoration: none;
-  color: #000000 !important;
-}
-
-.horizontal-line {
-  position: fixed;
-  width: 100%;
-  height: 40px; /* Можете изменить толщину полоски по своему усмотрению */
-  background-color: #228B22;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-button#menuButton {
-  background-color: #228B22;
-  color: transparent;
-  font-size: 0;
-  padding: 20px 20px; /* Изменил значение padding, чтобы сделать кнопку пошире */
-  border: none;
-  position: fixed;
-  top: 0; /* Расстояние от полоски до кнопки; в данном случае совпадает с верхним краем */
-  left: 0px; /* Расстояние от полоски до левого края */
-  border-radius: 5px;
-  z-index: 2;
-}
-
-button#menuButton::before,
-button#menuButton::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 14px;
-  background-color: #FFFFFF;
-  top: calc(50% - 10px);
-  left: 0;
-}
-
-button#menuButton::before {
-  top: calc(50% - 16px);
-}
-
-button#menuButton::after {
-  top: calc(50% + 2px);
-}
-
-.content {
-  margin-top: 50px; /* Расстояние от полоски до текста */
-}
-.menu-bar {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  width: 200px;
-  padding: 10px;
-  background-color: #f1f1f1;
-  z-index: 3;
-}
-
-.menu-bar.open {
-  display: block;
-}
-.menu-list li a {
-  font-family: "Lobster", sans-serif;
-}
-.input-group {
-  margin-top: -15px;
-  margin-left: 70px;
-  /*margin-right: 100px;*/
-  max-width: 1100px; /* Задайте желаемую ширину */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

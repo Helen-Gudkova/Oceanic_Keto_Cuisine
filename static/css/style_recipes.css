@@ -12,55 +12,59 @@ body {
   text-align: center !important;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   background-color: transparent;
-  color: #663300;
+  color: #000000;
 }
 
-.article{
- font-size: 15px;
+.article {
+  font-size: 15px;
   text-align: center;
   font-weight: 400;
   font-style: normal;
-  font-family: "Lobster", sans-serif;
-  color: #663300;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  color: #000000;
 }
 
 .bg-image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px; /* Настройте ширину изображения по вашим предпочтениям */
-    height: 250px; /* Настройте высоту изображения по вашим предпочтениям */
-    border: 4px solid rgba(139, 49, 19, 0); /* Замените цвет на ваше предпочтение и настройте прозрачность */
-    border-radius: 10px; /* Задайте радиус закругления углов */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  height: 250px;
+  border: 4px solid rgba(139, 49, 19, 0);
+  border-radius: 10px;
 }
 
 .image-column {
-    display: flex;
-    flex-direction: column; /*row;*/
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.type{
+.type {
   font-style: normal;
   font-size: 25px;
-   text-align: center;
-   font-family: "Lobster", sans-serif;
-   color: #331a00;/* Замените цвет на ваше предпочтение #331a00*/
-   font-weight: bold;
-   padding: 10px;
-   margin: 10px;
-   position: relative;
-   display: inline-block;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  color: #000000;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  flex: 0 0 auto;
+  max-width: 25%;
 }
-.type:after {
-        position: absolute; /* Позиционируем текст поверх фонового изображения */
-        content: attr(data-text); /* Текст для отображения */
-    }
 
-/* Прозрачность фонового изображения */
+.type:after {
+  position: absolute;
+  content: attr(data-text);
+}
+
 body::after {
   content: "";
   position: fixed;
@@ -72,6 +76,15 @@ body::after {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  opacity: 0.2; /* Уровень прозрачности фонового изображения */
+  opacity: 0.2;
   z-index: -1;
 }
+
+.slider {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+
