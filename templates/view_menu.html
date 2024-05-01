@@ -8,14 +8,52 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_menu.css' %}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
   <h2 class="site-title1 text-center">Примеры меню на неделю 🥑🐟</h2>
     <div class="image-column text-center">
+	<div class="slider-container">
     {% for day, day_name in days_of_week %}
-      <a href="/menu_detail/?day={{ day }}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ day }}.jpg');" >
-        {{ day_name }}
+	<div class="item">
+	<a href="/menu_detail/?day={{ day }}">
+	  <div class="img-container">
+	  <img src="{% static 'images/'%}{{ day }}.jpg" alt="{{ day }}">
+      </div>
+	   <div class="text-container">{{ day_name }}</div>
       </a>
+	</div>  
     {% endfor %}
   </div>
+</div>
+<script>
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+  const sliderContainer = document.querySelector('.slider-container');
+
+  let sliderWidth = sliderContainer.offsetWidth;
+  let itemWidth = sliderContainer.querySelector('.type').offsetWidth;
+  let scrollAmount = itemWidth * 4;
+
+  prevButton.textContent = '←';
+  nextButton.textContent = '→';
+
+  prevButton.addEventListener('click', () => {
+  sliderContainer.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+});
+
+nextButton.addEventListener('click', () => {
+  sliderContainer.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+});
+  document.body.appendChild(prevButton);
+  document.body.appendChild(nextButton);
+</script>  
 {% endblock %}
 

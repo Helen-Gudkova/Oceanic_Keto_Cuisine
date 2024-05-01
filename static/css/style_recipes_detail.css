@@ -153,6 +153,8 @@ body::after {
   color: #000000;
   text-align: center;
   margin-top: 10px;
+  text-decoration: underline;
+  text-decoration-color: #000000;
 }
 
 

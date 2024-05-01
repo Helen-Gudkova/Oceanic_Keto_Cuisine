@@ -32,11 +32,33 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 300px; /* Настройте ширину изображения по вашим предпочтениям */
-    height: 250px; /* Настройте высоту изображения по вашим предпочтениям */
-    border: 4px solid rgba(139, 49, 19, 0); /* Замените цвет на ваше предпочтение и настройте прозрачность */
-    border-radius: 10px; /* Задайте радиус закругления углов */
+    border: 4px solid rgba(139, 69, 19, 0);
+    border-radius: 20px;
+    padding-top: 75%; /* Соотношение сторон 4:3 */
+    position: relative; /* Необходимо для позиционирования текста */
 }
+
+.bg-image::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/*.image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}*/
 
 .image-column {
     display: flex;
@@ -47,7 +69,7 @@ body {
 
 .type{
   font-style: normal;
-  font-size: 20px;
+  font-size: 25px;
    text-align: center;
    font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -62,6 +84,12 @@ body {
         position: absolute; /* Позиционируем текст поверх фонового изображения */
         content: attr(data-text); /* Текст для отображения */
     }
+#days_of_week-list{
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 2px solid #cccccc;
+}	
 
 /* Прозрачность фонового изображения */
 body::after {
@@ -78,9 +106,62 @@ body::after {
   opacity: 0.2; /* Уровень прозрачности фонового изображения */
   z-index: -1;
 }
-.image-column {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;  /* Равномерное распределение */
-    align-items: center;  /* Выравнивание по центру */
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрирование контейнера */
+}
+
+.item {
+  flex: 0 0 25%;
+  scroll-snap-align: start;
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: 300px; /* Максимальная ширина элемента */
+}
+.type {
+  width: 25%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.type img {
+  max-width: 100%;
+  height: auto;
+}
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Соотношение сторон 4:3 */
+  overflow: hidden;
+}
+
+.img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+}
+
 }
