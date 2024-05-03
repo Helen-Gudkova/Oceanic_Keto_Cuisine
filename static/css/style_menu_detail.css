@@ -109,3 +109,8 @@ body::after {
   color: #000000;
 
 }
+.day-title2 a {
+    color: #000000; /* Установить черный цвет текста */
+    text-decoration: underline; /* Добавить подчеркивание */
+    text-decoration-color: #000000; /* Установить черный цвет подчеркивания */
+}

@@ -16,7 +16,11 @@
     <h3 class="day-title1 text-center">{{ meal_time }}</h3>
     <ul>
         {% for item in items %}
-            <li class="day-title2 text-center">{{ item.recipe.title }} - {{ item.calories }} калорий</li>
+            <li class="day-title2 text-center">
+    <a href="{% url 'recipe_detail' recipe_title=item.recipe.title %}">{{ item.recipe.title }}</a>
+    - {{ item.calories }} калорий
+</li>
+
         {% endfor %}
     </ul>
   {% endfor %}
