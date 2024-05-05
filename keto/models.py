@@ -1,8 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-
-
+from django.db.models import Avg
 class Recipe(models.Model):
        title = models.CharField(max_length=100) #заголовок
        description = models.TextField() #Описание рецепта
@@ -13,6 +12,12 @@ class Recipe(models.Model):
        calories = models.IntegerField()  # Добавленное поле для калорий
        created_at = models.DateTimeField(auto_now_add=True) #Дата и время создания рецепта (автоматически добавляется).
 
+
+def average_rating(self):
+    reviews = self.reviews.all()  # Получаем все отзывы для рецепта
+    if reviews.exists():
+        return reviews.aggregate(Avg('rating'))['rating__avg']
+    return 0
 class KetoArticle(models.Model):
      title = models.CharField(max_length=100) #название
      content = models.TextField() #содержание
@@ -63,3 +68,5 @@ class RecipeReview(models.Model):
 
     class Meta:
         unique_together = ('recipe', 'user')
+
+

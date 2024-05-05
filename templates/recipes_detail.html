@@ -11,24 +11,57 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <h2 class="site-title1 text-center">{{ dish_type }} 🥑🐟</h2>
  <div class="image-column text-center"> <!-- добавляем дополнительный контейнер для столбца изображений -->
   <div class="slider-container">
-  {% for recipe_title in recipes %}
-  <div class="item">
-    <a href="{% url 'recipe_detail' recipe_title=recipe_title %}">
-      <div class="img-container">
-        <img src="{% static 'images/'%}{{ recipe_title }}.jpg" alt="{{ recipe_title }}">
-      </div>
-      <div class="text-container">{{ recipe_title }}</div>
-    </a>
+  {% for recipe_data in recipes_data %}
+<div class="item">
+  <a href="{% url 'recipe_detail' recipe_title=recipe_data.title %}">
+    <div class="img-container">
+      <img src="{% static 'images/'%}{{ recipe_data.title }}.jpg" alt="{{ recipe_data.title }}">
+    </div>
+    <div class="text-container">{{ recipe_data.title }}</div>
+    <div class="rating-container" data-rating="{{ recipe_data.rating }}">
+  <div class="star-rating">
+    {% for _ in '12345' %}
+      <i class="fas fa-star"></i>
+    {% endfor %}
   </div>
-  {% endfor %}
+<!--  <span class="rating">{{ recipe_data.rating }}</span>-->
 </div>
-
+  </a>
+</div>
+{% endfor %}
+</div>
 </div>
 <script>
+function renderStarRating(rating, container) {
+  container.innerHTML = ''; // Очистить контейнер
+
+  const starCount = 5; // Количество звезд
+  const isValidRating = !isNaN(rating) && rating >= 0 && rating <= starCount;
+
+  for (let i = 1; i <= starCount; i++) {
+    const star = document.createElement('i');
+    star.classList.add('fas', 'fa-star');
+    if (isValidRating && i <= rating) {
+      star.classList.add('filled');
+    }
+    container.appendChild(star);
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const ratingContainers = document.querySelectorAll('.rating-container');
+  ratingContainers.forEach(container => {
+    const rating = parseFloat(container.dataset.rating);
+    const starRatingElement = container.querySelector('.star-rating');
+
+    renderStarRating(rating, starRatingElement);
+  });
+});
+
   const prevButton = document.querySelector('.prev-button');
   const nextButton = document.querySelector('.next-button');
   const sliderContainer = document.querySelector('.slider-container');
@@ -55,6 +88,7 @@ nextButton.addEventListener('click', () => {
 });
   document.body.appendChild(prevButton);
   document.body.appendChild(nextButton);
-</script>
+
+  </script>
 {% endblock %}
 

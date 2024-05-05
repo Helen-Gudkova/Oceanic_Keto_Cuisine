@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Recipe, RecipeReview
 from .forms import ReviewForm
+from django.db.models import Avg
 
 
 
@@ -59,15 +60,17 @@ def menu_detail_view(request):
 def get_recipes_view(request):
     dish_type = request.GET.get('type')
 
-    # Получение списка блюд из модели Recipe на основе выбранного типа
-    recipes = Recipe.objects.filter(dish_type=dish_type).values('title')
+    # Получение списка объектов Recipe с аннотацией среднего рейтинга
+    recipes = Recipe.objects.filter(dish_type=dish_type).annotate(average_rating=Avg('reviews__rating'))
 
-    # Преобразование QuerySet в список значений "title"
-    recipes_list = [recipe['title'] for recipe in recipes]
+    # Создание списка словарей с информацией о рецептах и их рейтингах
+    recipes_data = [
+        {'title': recipe.title, 'rating': recipe.average_rating}  # Доступ к аннотации
+        for recipe in recipes
+    ]
 
-    # Возврат шаблона с передачей списка рецептов и значения dish_type в контексте
-    return render(request, 'recipes_detail.html', {'recipes': recipes_list, 'dish_type': dish_type})
-
+    # Передача данных в контексте шаблона
+    return render(request, 'recipes_detail.html', {'recipes_data': recipes_data, 'dish_type': dish_type})
 def recipe_detail(request, recipe_title):
     recipe = get_object_or_404(Recipe, title=recipe_title)
     # Фильтруем отзывы по текущему рецепту
