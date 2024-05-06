@@ -81,7 +81,7 @@ body::after {
 .day-title {
   font-size: 30px;
   text-align: center !important;
-  font-weight: 500;
+  font-weight: bold;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -91,7 +91,7 @@ body::after {
 .day-title1 {
   font-size: 20px;
   text-align: center !important;
-  font-weight: 500;
+  font-weight: bold;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;

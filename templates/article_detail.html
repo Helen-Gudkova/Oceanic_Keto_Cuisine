@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_article_detail.css' %}">
 </head>
-<h2 class="site-title2 text-center">{{ article.title }}</h2>
-<p class="site-title3 text-center">{{ article.content }}</p>
-<p class="site-title3 text-center"><strong>Автор: </strong>{{ article.author }}</p>
+<h2 class="site-title2">{{ article.title }}</h2>
+<p class="site-title3">{{ article.content }}</p>
+<p class="site-title3"><em>Автор:{{ article.author }}</em></p>
 {% endblock %}
