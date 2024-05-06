@@ -21,7 +21,7 @@ body {
 .site-title2 {
   font-size: 20px;
   text-align: center !important;
-  font-weight: 400;
+  font-weight: bold;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;

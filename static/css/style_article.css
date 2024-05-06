@@ -9,8 +9,8 @@ body {
 
 .site-title1 {
   font-size: 36px;
-  text-align: center !important;
-  font-weight: 400;
+  text-align: left;
+  font-weight: bold;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -20,8 +20,8 @@ body {
 
 .article{
  font-size: 15px;
-  text-align: center;
-  font-weight: 400;
+  text-align: left;
+  font-weight: bold;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
