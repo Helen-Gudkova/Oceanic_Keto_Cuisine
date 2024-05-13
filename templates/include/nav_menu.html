@@ -1,7 +1,8 @@
 {% comment %} /templates/include/nav_menu.html {% endcomment %}
 {% load static %}
 <!--Меню было вставлено через include в базовый шаблон-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light login-btn-container">
+  <div class="login-btn-container">
   <div class="container-fluid">
     <!-- Логотип и кнопка для мобильных версий -->
 
@@ -21,23 +22,25 @@
           {% endif %}
         {% endfor %}
       </ul>
+
 	   <ul class="navbar-nav"> <!-- Элементы правой части без выравнивания по левому краю -->
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Привет, {{ user.username }}!</a>
+          <a class="nav-link login-link" href="#">Привет, {{ user.username }}!</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:logout' %}">Выйти</a>
+          <a class="nav-link login-link" href="{% url 'users:logout' %}">Выйти</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+          <a class="nav-link login-link" href="{% url 'users:login' %}">Войти</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:signup' %}">Регистрация</a>
+          <a class="nav-link login-link" href="{% url 'users:signup' %}">Регистрация</a>
         </li>
         {% endif %}
       </ul>
+    </div>
     </div>
   </div>
 </nav>
