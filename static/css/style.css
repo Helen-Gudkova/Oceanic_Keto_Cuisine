@@ -127,6 +127,13 @@ body {
   border-radius: 4px;
   display: flex;
 }
+.container {
+  max-width: 800px; /* Задайте желаемую ширину в пикселях или другую единицу измерения */
+  margin: 0 auto;
+}
+
+
+
 
 
 

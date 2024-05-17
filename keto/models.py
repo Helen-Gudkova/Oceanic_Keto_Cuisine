@@ -3,16 +3,16 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models import Avg
 class Recipe(models.Model):
-       title = models.CharField(max_length=100) #заголовок
-       description = models.TextField() #Описание рецепта
-       ingredients = models.TextField() #Список ингредиентов для рецепта
-       instructions = models.TextField() #Шаги приготовления рецепта
-       # Новое поле "тип блюда"
-       dish_type = models.CharField(max_length=255, default='Unknown')
-       calories = models.IntegerField()  # Добавленное поле для калорий
-       created_at = models.DateTimeField(auto_now_add=True) #Дата и время создания рецепта (автоматически добавляется).
-
-
+    title = models.CharField(max_length=100) #заголовок
+    description = models.TextField() #Описание рецепта
+    ingredients = models.TextField() #Список ингредиентов для рецепта
+    instructions = models.TextField() #Шаги приготовления рецепта
+    # Новое поле "тип блюда"
+    dish_type = models.CharField(max_length=255, default='Unknown')
+    calories = models.IntegerField()  # Добавленное поле для калорий
+    created_at = models.DateTimeField(auto_now_add=True) #Дата и время создания рецепта (автоматически добавляется)
+    def __str__(self):
+        return self.title
 def average_rating(self):
     reviews = self.reviews.all()  # Получаем все отзывы для рецепта
     if reviews.exists():
