@@ -1,6 +1,4 @@
-{
-  "encoding": "utf-8",
-  "objects":[
+[
 {
     "model": "keto.recipe",
     "pk": 1,
