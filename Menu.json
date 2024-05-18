@@ -1,0 +1,272 @@
+[
+{
+    "model": "keto.menu",
+    "pk": 1,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Monday",
+        "recipe": 1
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 2,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Monday",
+        "recipe": 3
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 3,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Monday",
+        "recipe": 7
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 4,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Monday",
+        "recipe": 6
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 5,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Tuesday",
+        "recipe": 13
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 6,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Tuesday",
+        "recipe": 22
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 7,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Tuesday",
+        "recipe": 27
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 8,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Tuesday",
+        "recipe": 44
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 9,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Wednesday",
+        "recipe": 14
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 10,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Wednesday",
+        "recipe": 23
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 11,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Wednesday",
+        "recipe": 10
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 12,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Wednesday",
+        "recipe": 41
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 13,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Thursday",
+        "recipe": 4
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 14,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Thursday",
+        "recipe": 11
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 15,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Thursday",
+        "recipe": 12
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 16,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Thursday",
+        "recipe": 5
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 17,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Friday",
+        "recipe": 14
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 18,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Friday",
+        "recipe": 20
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 19,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Friday",
+        "recipe": 30
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 20,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Friday",
+        "recipe": 44
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 21,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Saturday",
+        "recipe": 49
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 22,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Saturday",
+        "recipe": 47
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 23,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Saturday",
+        "recipe": 33
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 24,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Saturday",
+        "recipe": 28
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 25,
+    "fields": {
+        "meal_time": "Breakfast",
+        "day": "Sunday",
+        "recipe": 34
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 26,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Sunday",
+        "recipe": 48
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 27,
+    "fields": {
+        "meal_time": "Dinner",
+        "day": "Sunday",
+        "recipe": 35
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 28,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Sunday",
+        "recipe": 50
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 29,
+    "fields": {
+        "meal_time": "Lunch",
+        "day": "Saturday",
+        "recipe": 1
+    }
+},
+{
+    "model": "keto.menu",
+    "pk": 30,
+    "fields": {
+        "meal_time": "Snack",
+        "day": "Monday",
+        "recipe": 50
+    }
+}
+]
