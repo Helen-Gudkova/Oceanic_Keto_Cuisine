@@ -169,3 +169,6 @@ AUTH_USER_MODEL = 'auth.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+DATABASE_OPTIONS = {
+    'charset': 'utf8mb4',  # Установите кодировку для поддержки русского языка
+}
