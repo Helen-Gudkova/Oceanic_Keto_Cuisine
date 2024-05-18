@@ -37,12 +37,12 @@ class DishTypeFilter(admin.SimpleListFilter):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'ingredients', 'instructions', 'dish_type', 'calories','created_at')
+    list_display = ('title', 'description', 'ingredients', 'instructions', 'dish_type', 'calories','created_at','image')
     list_filter = ('dish_type', DishTypeFilter)
     search_fields = ('description', 'Category__name', 'Answer', 'tags__name')
     ordering = ('-created_at', 'description')
     list_per_page = 20
-    readonly_fields = ('dish_type',)  # Использовать readonly_fields вместо fields
+    readonly_fields = ('dish_type','image')  # Использовать readonly_fields вместо fields
 
 
     def tags_list(self, obj):

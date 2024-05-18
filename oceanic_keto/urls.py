@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from keto import views
+from django.conf import settings
+from django.conf.urls.static import static
 from keto.views import recipes_view, menu_view, about_view, get_recipes_view, keto_article_view, article_detail_view, \
     menu_detail_view
 
@@ -37,4 +39,4 @@ urlpatterns = [
     path('keto/', include('keto.urls')),
     path('users/', include('users.urls', namespace='users')),  # Подключение URL-путей из приложения users
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

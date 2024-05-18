@@ -11,6 +11,7 @@ class Recipe(models.Model):
     dish_type = models.CharField(max_length=255, default='Unknown')
     calories = models.IntegerField()  # Добавленное поле для калорий
     created_at = models.DateTimeField(auto_now_add=True) #Дата и время создания рецепта (автоматически добавляется)
+    image = models.ImageField(upload_to='static/images/', blank=True, null=True)
     def __str__(self):
         return self.title
 def average_rating(self):
