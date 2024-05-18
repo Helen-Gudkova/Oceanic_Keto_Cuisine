@@ -42,8 +42,16 @@ class RecipeAdmin(admin.ModelAdmin):
     search_fields = ('description', 'Category__name', 'Answer', 'tags__name')
     ordering = ('-created_at', 'description')
     list_per_page = 20
-    readonly_fields = ('dish_type','image')  # Использовать readonly_fields вместо fields
-
+    fields = (
+        'title',
+        'description',
+        'ingredients',
+        'instructions',
+        'dish_type',
+        'calories',
+        'image',  # Добавить поле image сюда
+    )
+    readonly_fields = ('created_at',)  # Оставить только dish_type как readonly
 
     def tags_list(self, obj):
         return ", ".join([tag.name for tag in obj.tags.all()])
