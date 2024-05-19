@@ -3,15 +3,16 @@
 {% block content %}
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_recipes_detail_detail.css' %}">
 </head>
-<div class="container">
- <div class="image-column">
+
+<div class="recipe-container">
+  <div class="image-column">
     <div class="bg-image" href="{% url 'recipe_detail' recipe_title=recipe.title %}" class="type bg-image" style="background-image: url('{% static 'images/'%}{{ recipe.title }}.jpg');"></div>
- </div>
-   <div class="content-column">
+  </div>
+  <div class="content-column">
     <h3 class="site-title2">{{ recipe.title }}🥑🐟</h3>
     <div class="info">
       <div>
@@ -22,7 +23,7 @@
         <h3 class="site-title2">Инструкции:</h3>
         <p class="site-title3">{{ recipe.instructions}}</p>
       </div>
-        <div>
+      <div>
         <h3 class="site-title2">Калории:</h3>
         <p class="site-title3">{{ recipe.calories}}</p>
       </div>
@@ -30,39 +31,49 @@
   </div>
 </div>
 
-<!-- Отображение существующих отзывов (перемещено вне условного блока) -->
-<h3 class="site-title2">Отзывы:</h3>
-{% for review in reviews %}
-  <div>
-    <p class="site-title3">Оценка: {{ review.rating }}</p>
-    <p class="site-title3">Комментарий: {{ review.comment }}</p>
-    <p class="site-title3">Пользователь: {{ review.user.username }}</p>
-    <p class="site-title3">Дата: {{ review.created_at }}</p>
-  </div>
-{% endfor %}
-
-{% if error_message %}
+<div class="review-section">
+  {% if error_message %}
     <p class="site-title3">{{ error_message }}</p>
-{% endif %}
+  {% endif %}
 
-{% if user.is_authenticated and not user_review %}
-        <!-- Форма для добавления нового отзыва -->
-        <div class="content-column">
-        <h3 class="site-title2" >Добавить отзыв</h3>
-        <div class="content-column">
-        <form method="post" action="{% url 'create_review' recipe.id %}">
-            {% csrf_token %}
-            <label class="site-title3">Оценка:</label>
-            <input type="number" name="rating" min="1" max="5" required>
-            <label class="site-title3">Комментарий:</label>
-            <textarea name="comment"></textarea>
-            <button type="submit" class="site-title3">Отправить</button>
-        </form>
-        </div>
-{% elif user.is_authenticated and user_review %}
+  {% if user.is_authenticated and not user_review %}
+    <!-- Форма для добавления нового отзыва -->
+    <div class="review-form">
+      <h3 class="site-title2">Добавить отзыв</h3>
+      <form method="post" action="{% url 'create_review' recipe.id %}">
+        {% csrf_token %}
+        <label class="site-title3">Оценка:</label>
+        <input type="number" name="rating" min="1" max="5" required>
+        <label class="site-title3">Комментарий:</label>
+        <textarea name="comment"></textarea>
+        <button type="submit" class="site-title3">Отправить</button>
+      </form>
+    </div>
+  {% elif user.is_authenticated and user_review %}
     <p class="site-title3">Вы уже оставили отзыв на этот рецепт.</p>
-    {% endif %}
+  {% endif %}
+
+  <!-- Отображение существующих отзывов -->
+  <h3 class="site-title2">Отзывы:</h3>
+  <div class="reviews">
+    {% for review in reviews %}
+    <div class="review">
+      <p class="site-title3">Оценка: {{ review.rating }}</p>
+      <p class="site-title3">Комментарий: {{ review.comment }}</p>
+      <p class="site-title3">Пользователь: {{ review.user.username }}</p>
+      <p class="site-title3">Дата: {{ review.created_at }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
+
+
+
+
+
+
+
 
 
 
