@@ -173,3 +173,4 @@ MEDIA_URL = '/media/'
 DATABASE_OPTIONS = {
     'charset': 'utf8mb4',  # Установите кодировку для поддержки русского языка
 }
+CSRF_TRUSTED_ORIGINS = ['https://helen-gudkova-oceanic-keto-cuisine-b60b.twc1.net']
