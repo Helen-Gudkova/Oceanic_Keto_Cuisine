@@ -1,5 +1,6 @@
 import json
 
+from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -106,31 +107,41 @@ def recipe_search(request):
     return render(request, 'recipes_search.html', context)
 
 @login_required
-def create_review(request, recipe_id):
+def create_review(request, recipe_id, error_message=None):
     recipe = get_object_or_404(Recipe, id=recipe_id)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            review_exists = RecipeReview.objects.filter(recipe=recipe, user=request.user).exists()
-            if review_exists:
-                error_message = 'Вы уже оставили отзыв на этот рецепт.'
-                return redirect('recipe_detail_detail', recipe_title=recipe.title, error_message=error_message)
-            else:
+            try:
                 review = form.save(commit=False)
                 review.recipe = recipe
                 review.user = request.user
                 review.save()
-                error_message = None  # Здесь устанавливаем error_message в None после успешного сохранения отзыва
-                return redirect('recipe_detail_detail', recipe_title=recipe.title, error_message=error_message)
+
+                return redirect('recipe_detail_detail', recipe_title=recipe.title)
+            except IntegrityError:
+                error_message = 'Вы уже оставили отзыв на этот рецепт.'
+                return redirect('create_review', recipe_id=recipe_id, error_message=error_message)
+
     else:
         form = ReviewForm()
 
     context = {
         'recipe': recipe,
         'form': form,
+        'error_message': error_message
     }
     return render(request, 'create_review.html', context)
+
+
+
+
+
+
+
+
+
 
 
 

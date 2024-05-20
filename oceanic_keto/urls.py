@@ -32,9 +32,11 @@ urlpatterns = [
     path('menu/', menu_view, name='menu'),
     path('menu_detail/', menu_detail_view, name='menu_detail'),
     path('get-recipes/', get_recipes_view, name='get-recipes'),
+    path('recipes/<str:recipe_title>/detail/', views.recipe_detail_detail, name='recipe_detail_detail'),
     path('recipes/<str:recipe_title>/detail/<str:error_message>/', views.recipe_detail_detail, name='recipe_detail_detail'),
     path('recipes/search/', views.recipe_search, name='recipe_search'),
     path('recipes/<int:recipe_id>/create_review/', views.create_review, name='create_review'),
+    path('recipes/<int:recipe_id>/create_review/<str:error_message>/', views.create_review, name='create_review'),
     path('recipe/<str:recipe_title>/', views.recipe_detail, name='recipe_detail'),
     path('keto/', include('keto.urls')),
     path('users/', include('users.urls', namespace='users')),  # Подключение URL-путей из приложения users

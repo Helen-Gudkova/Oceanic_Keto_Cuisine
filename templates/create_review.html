@@ -3,10 +3,15 @@
 {% block content %}
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_recipes_detail_detail.css' %}">
 </head>
+
+{% if error_message %}
+    <p class="site-title3">{{ error_message }}</p>
+{% endif %}
+
 <h2>Добавить отзыв к рецепту "{{ recipe.title }}"</h2>
 <form method="post" action="{% url 'create_review' recipe.id %}">
     {% csrf_token %}
@@ -14,4 +19,5 @@
     <button type="submit">Отправить отзыв</button>
 </form>
 {% endblock %}
+
 

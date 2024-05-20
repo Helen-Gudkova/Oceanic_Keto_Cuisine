@@ -36,7 +36,7 @@
     <p class="site-title3">{{ error_message }}</p>
   {% endif %}
 
-  {% if user.is_authenticated and not user_review %}
+  {% if user.is_authenticated %}
     <!-- Форма для добавления нового отзыва -->
     <div class="review-form">
       <h3 class="site-title2">Добавить отзыв</h3>
@@ -49,8 +49,6 @@
         <button type="submit" class="site-title3">Отправить</button>
       </form>
     </div>
-  {% elif user.is_authenticated and user_review %}
-    <p class="site-title3">Вы уже оставили отзыв на этот рецепт.</p>
   {% endif %}
 
   <!-- Отображение существующих отзывов -->
@@ -67,6 +65,7 @@
   </div>
 </div>
 {% endblock %}
+
 
 
 
