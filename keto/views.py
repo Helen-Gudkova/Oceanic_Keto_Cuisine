@@ -106,7 +106,6 @@ def recipe_search(request):
     }
     return render(request, 'recipes_search.html', context)
 
-@login_required
 def create_review(request, recipe_id, error_message=None):
     recipe = get_object_or_404(Recipe, id=recipe_id)
 
@@ -119,10 +118,9 @@ def create_review(request, recipe_id, error_message=None):
                 review.user = request.user
                 review.save()
 
-                return redirect('recipe_detail_detail', recipe_title=recipe.title)
+                return redirect('recipe_detail', recipe.title)
             except IntegrityError:
                 error_message = 'Вы уже оставили отзыв на этот рецепт.'
-                return redirect('create_review', recipe_id=recipe_id, error_message=error_message)
 
     else:
         form = ReviewForm()
@@ -132,7 +130,12 @@ def create_review(request, recipe_id, error_message=None):
         'form': form,
         'error_message': error_message
     }
+
+    if error_message:
+        context['form'] = None
+
     return render(request, 'create_review.html', context)
+
 
 
 

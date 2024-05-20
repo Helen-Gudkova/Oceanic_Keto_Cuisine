@@ -10,14 +10,15 @@
 
 {% if error_message %}
     <p class="site-title3">{{ error_message }}</p>
+    {{ form.as_hidden }}
+{% else %}
+    <h2>Добавить отзыв к рецепту "{{ recipe.title }}"</h2>
+    <form method="post" action="{% url 'create_review' recipe.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить отзыв</button>
+    </form>
 {% endif %}
-
-<h2>Добавить отзыв к рецепту "{{ recipe.title }}"</h2>
-<form method="post" action="{% url 'create_review' recipe.id %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить отзыв</button>
-</form>
 {% endblock %}
 
 
