@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'keto.middleware.view_count.ViewCountMiddleware',
 ]
 
 ROOT_URLCONF = 'oceanic_keto.urls'
