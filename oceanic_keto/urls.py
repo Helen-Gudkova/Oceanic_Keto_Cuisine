@@ -30,6 +30,7 @@ urlpatterns = [
     path('articles/<int:article_id>/', article_detail_view, name='article_detail'),
     path('recipes/', recipes_view, name='recipes'),
     path('menu/', menu_view, name='menu'),
+
     path('menu_detail/', menu_detail_view, name='menu_detail'),
     path('get-recipes/', get_recipes_view, name='get-recipes'),
     path('recipes/<str:recipe_title>/detail/', views.recipe_detail_detail, name='recipe_detail_detail'),
